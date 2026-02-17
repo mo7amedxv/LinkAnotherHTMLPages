@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: var(--heading-color);
+  font-size: 18px;
+  display: block;
+  padding: 1.5rem 2rem;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+li:hover {
+  background: var(--hover-color);
+}
+
+:root {
+  --primary-color: hsl(0, 0%, 7%);
+  --header-color: hsl(0, 0%, 12%);
+  --hover-color: hsl(0, 0%, 15%);
+  --heading-color: hsl(0, 0%, 93%);
+  --text-color: hsl(0, 0%, 63%);
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100svh;
+  background: var(--primary-color);
+  font-family: "poppins", sans-serif;
+}
+
+header {
+  background: var(--header-color);
+  color: var(--heading-color);
+  font-size: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+}
+
+section {
+  padding: 2rem;
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+}
+
+p {
+  text-align: center;
+  color: var(--text-color);
+  line-height: 1.8;
+  max-width: 700px;
+}
+
+a[aria-current="page"] {
+  background-color: var(--hover-color);
+  font-weight: 600;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  width: 30px;
+  height: 25px;
+  justify-content: space-between;
+}
+#menu-toggle {
+  display: none;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: var(--heading-color);
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+  .menu {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: var(--header-color);
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+  }
+
+  #menu-toggle:checked + .hamburger + .menu {
+    max-height: 300px;
+  }
+  .menu ul {
+    flex-direction: column;
+  }
+
+  span {
+    transition: 0.2s ease;
+  }
+
+  #menu-toggle:checked + .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 10px);
+  }
+  #menu-toggle:checked + .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+  #menu-toggle:checked + .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
