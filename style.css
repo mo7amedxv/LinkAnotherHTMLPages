@@ -127,3 +127,13 @@ img {
     transform: rotate(-45deg) translate(5px, -5px);
   }
 }
+@media (prefers-color-scheme: light) {
+  :root {
+    --primary-color: hsl(0, 0%, 93%);
+    --header-color: hsl(0, 0%, 88%);
+    --hover-color: hsl(0, 0%, 85%);
+    --heading-color: hsl(0, 0%, 7%);
+    --text-color: hsl(0, 0%, 37%);
+  }
+}
+
